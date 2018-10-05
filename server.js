@@ -26,7 +26,7 @@ var client = new Twitter({
 */
 app.get("/search/:query", function(req, res) {
   console.log(req.params);
-  client.get("search/tweets", {q:req.params.query}, function(error, tweets, response) {
+  client.get("search/tweets", {q:req.params.query, tweet_mode: "extended", count:1}, function(error, tweets, response) {
     if(error) {
       console.log(error);
       res.status(500).send(error);
