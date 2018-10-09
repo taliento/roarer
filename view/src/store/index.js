@@ -7,6 +7,9 @@ Vue.use(Vuex)
 
 Vue.filter('formatDate', function (value) {
   if (value) {
+    if (moment(value).isSame(new Date(), 'day')) {
+      return 'Today' + ' ' + moment(String(value)).format('HH:mm')
+    }
     return moment(String(value)).format('DD/MM/YYYY hh:mm')
   }
 })

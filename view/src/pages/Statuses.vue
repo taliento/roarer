@@ -1,13 +1,9 @@
 <template>
   <q-page padding>
-
     <q-search v-model="searchText" @input="searchTweets"/>
-
     <q-spinner v-if="loading"/>
-
     <q-list v-else-if="response != null" highlight>
       <q-list-header>Recent tweets</q-list-header>
-
       <q-item v-for="(tweet, index) of response.data.statuses" :key="index">
         <q-item-side>
           <q-item-tile avatar>
@@ -18,7 +14,7 @@
           <q-item-tile label multiline="true">{{tweet.full_text}}</q-item-tile>
         </q-item-main>
         <q-item-side right>
-          <q-item-tile label>{{tweet.user.created_at | formatDate}}</q-item-tile>
+          <q-item-tile label>{{tweet.created_at | formatDate}}</q-item-tile>
         </q-item-side>
       </q-item>
     </q-list>
