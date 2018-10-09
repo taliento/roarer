@@ -25,15 +25,21 @@ var client = new Twitter({
 *  curl -X GET 'http://localhost:3000/search/riace'| jq
 */
 app.get("/search/:query", function(req, res) {
-  console.log(req.params);
-  client.get("search/tweets", {q:req.params.query, tweet_mode: "extended", count:1}, function(error, tweets, response) {
-    if(error) {
-      console.log(error);
-      res.status(500).send(error);
-    } else {
-      res.send(tweets);
-    }
- });
+  const params = {
+    q: req.params.query,
+    tweet_mode: "extended",
+    include_entities: false,
+    locale: 'it'
+  };
+  client.get("search/tweets", params,
+    function(error, tweets, response) { //, count:1
+      if(error) {
+        console.log(error);
+        res.status(500).send(error);
+      } else {
+        res.send(tweets);
+      }
+   });
 });
 
 // Initialize the app.
