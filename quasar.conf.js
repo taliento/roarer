@@ -70,7 +70,8 @@ module.exports = function (ctx) {
         'QItemTile',
         'QSearch',
         'QSpinner',
-        'QInfiniteScroll'
+        'QInfiniteScroll',
+        'QSpinnerDots'
       ],
       directives: [
         'Ripple'

@@ -36,7 +36,7 @@ app.get("/search/:query", function(req, res) {
     locale: 'it'
   };
   client.get("search/tweets", params,
-    function(error, tweets, response) { //, count:1
+    function(error, tweets, response) {
       if(error) {
         console.log(error);
         res.status(500).send(error);
@@ -45,6 +45,27 @@ app.get("/search/:query", function(req, res) {
       }
    });
 });
+
+app.get("/refresh", function(req, res) {
+  console.log(req.query)
+  const params = {
+    q: req.query.q,
+    max_id: req.query.max_id,
+    tweet_mode: "extended",
+    include_entities: false,
+    locale: 'it'
+  };
+  client.get("search/tweets", params,
+    function(error, tweets, response) {
+      if(error) {
+        console.log(error);
+        res.status(500).send(error);
+      } else {
+        res.send(tweets);
+      }
+   });
+});
+
 
 // Initialize the app.
 var server = app.listen(process.env.PORT || 3000, function() {

@@ -11,7 +11,7 @@
 
 import Vue from 'vue'
 
-import {Quasar,QLayout,QLayoutHeader,QLayoutDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QListHeader,QItem,QItemMain,QItemSide,QTabs,QRouteTab,QLayoutFooter,QScrollArea,QItemTile,QSearch,QSpinner,QInfiniteScroll,Ripple,Notify} from 'quasar'
+import {Quasar,QLayout,QLayoutHeader,QLayoutDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QListHeader,QItem,QItemMain,QItemSide,QTabs,QRouteTab,QLayoutFooter,QScrollArea,QItemTile,QSearch,QSpinner,QInfiniteScroll,QSpinnerDots,Ripple,Notify} from 'quasar'
 
 
-Vue.use(Quasar, { config: {},components: {QLayout,QLayoutHeader,QLayoutDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QListHeader,QItem,QItemMain,QItemSide,QTabs,QRouteTab,QLayoutFooter,QScrollArea,QItemTile,QSearch,QSpinner,QInfiniteScroll},directives: {Ripple},plugins: {Notify} })
+Vue.use(Quasar, { config: {},components: {QLayout,QLayoutHeader,QLayoutDrawer,QPageContainer,QPage,QToolbar,QToolbarTitle,QBtn,QIcon,QList,QListHeader,QItem,QItemMain,QItemSide,QTabs,QRouteTab,QLayoutFooter,QScrollArea,QItemTile,QSearch,QSpinner,QInfiniteScroll,QSpinnerDots},directives: {Ripple},plugins: {Notify} })
