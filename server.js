@@ -25,10 +25,11 @@ var client = new Twitter({
   bearer_token: process.env.TWITTER_BEARER_TOKEN
 });
 
+const API_URL = "/api";
 /*
 *  curl -X GET 'http://localhost:3000/search/riace'| jq
 */
-app.get("/search/:query", function(req, res) {
+app.get(API_URL + "/search/:query", function(req, res) {
   const params = {
     q: req.params.query,
     tweet_mode: "extended",
@@ -46,8 +47,7 @@ app.get("/search/:query", function(req, res) {
    });
 });
 
-app.get("/refresh", function(req, res) {
-  console.log(req.query)
+app.get(API_URL + "/refresh", function(req, res) {
   const params = {
     q: req.query.q,
     max_id: req.query.max_id,

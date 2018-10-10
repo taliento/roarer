@@ -18,10 +18,10 @@ module.exports = function (ctx) {
     build: {
       env: ctx.dev
       ? { // so on dev we'll have
-        API: JSON.stringify('http://localhost:3000/')
+        API: JSON.stringify('http://localhost:3000/api/')
       }
       : { // and on build (production):
-        API: ''
+        API: JSON.stringify('api/')
       },
       scopeHoisting: true,
       // vueRouterMode: 'history',
