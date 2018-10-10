@@ -2,9 +2,7 @@
   <q-page padding>
     <q-search v-model="searchText" @input="searchTweets"/>
     <q-infinite-scroll inline style="height: 400px; overflow: auto;" v-if="tweets.length > 0" :handler="refresher">
-      <div v-for="(tweet, index) of tweets" :key="index">
-        <tweet :tweet="tweet"></tweet>
-      </div>
+      <tweet v-for="(tweet, index) of tweets" :key="index" :tweet="tweet"></tweet>
       <q-spinner-dots slot="message" :size="40"></q-spinner-dots>
     </q-infinite-scroll>
   </q-page>
