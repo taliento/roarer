@@ -1,10 +1,9 @@
 <template>
   <q-page padding>
     <q-search v-model="searchText" @input="searchTweets"/>
-    <q-spinner v-if="loading"/>
-    <q-list v-else-if="response != null" highlight>
+    <q-infinite-scroll :handler="refresher">
       <q-list-header>Recent tweets</q-list-header>
-      <q-item v-for="(tweet, index) of response.data.statuses" :key="index">
+      <q-item v-for="(tweet, index) of tweets" :key="index">
         <q-item-side>
           <q-item-tile avatar>
             <img :src="tweet.user.profile_image_url" :alt="tweet.user.name" :title="tweet.user.name" v-on:click="goToProfile(tweet.user.screen_name)">
@@ -17,7 +16,7 @@
           <q-item-tile label>{{tweet.created_at | formatDate}}</q-item-tile>
         </q-item-side>
       </q-item>
-    </q-list>
+    </q-infinite-scroll>
   </q-page>
 </template>
 
@@ -29,8 +28,8 @@ export default {
   data () {
     return {
       searchText: '',
-      response: null,
-      loading: false
+      tweets: [],
+      response: null
     }
   },
   methods: {
@@ -38,13 +37,20 @@ export default {
       window.location = 'https://twitter.com/' + name
     },
     searchTweets: function (event) {
-      this.loading = true
       axios
-        .get(process.env.API_URL ? process.env.API_URL : '' + 'search/' + this.searchText)
-        .then(response => {
+        .get(process.env.API + 'search/' + this.searchText)
+        .then((response) => {
           this.response = response
-          this.loading = false
+          this.tweets = response.data.statuses
         })
+    },
+    refresher (index, done) {
+      // axios
+      //   .get(process.env.API_URL ? process.env.API_URL : '' + 'search/' + this.searchText)
+      //   .then(response => {
+      //     this.response = response
+      //     done()
+      //   })
     }
   }
 }

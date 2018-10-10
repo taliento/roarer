@@ -1,9 +1,3 @@
-// Configuration for your app
-const webpack = require('webpack')
-const path = require('path')
-// Get our env variables
-const envparser = require('./config/envparser')
-
 module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
@@ -22,8 +16,14 @@ module.exports = function (ctx) {
     ],
     supportIE: false,
     build: {
+      env: ctx.dev
+      ? { // so on dev we'll have
+        API: JSON.stringify('http://localhost:3000/')
+      }
+      : { // and on build (production):
+        API: ''
+      },
       scopeHoisting: true,
-      env: envparser(), // Injecting env varibles in process.env
       // vueRouterMode: 'history',
       // vueCompiler: true,
       // gzip: true,
@@ -36,22 +36,15 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
-
-        // Create an alias for our helper
-        cfg.resolve.alias.env = path.resolve(__dirname, 'config/helpers/env.js')
-
-        // Make our helper function Global
-        cfg.plugins.push(
-          new webpack.ProvidePlugin({
-            'env': 'env' // this variable is our alias, it's not a string
-          })
-        )
       }
     },
     devServer: {
       // https: true,
       // port: 8080,
       open: true // opens browser window automatically
+    },
+    env: {
+        apiUrl: process.env.VUE_APP_API_URL,
     },
     // framework: 'all' --- includes everything; for dev only!
     framework: {
@@ -76,7 +69,8 @@ module.exports = function (ctx) {
         'QScrollArea',
         'QItemTile',
         'QSearch',
-        'QSpinner'
+        'QSpinner',
+        'QInfiniteScroll'
       ],
       directives: [
         'Ripple'
