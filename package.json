@@ -5,7 +5,7 @@
   "scripts": {
     "test": "npm test",
     "start": "nf start",
-    "postinstall": "cd ./view/ && npm install && quasar build"
+    "postinstall": "cd ./view/ && npm install --only=dev --no-shrinkwrap && quasar build"
   },
   "engines": {
     "node": "8.x"
