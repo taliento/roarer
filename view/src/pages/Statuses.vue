@@ -11,7 +11,7 @@
           </q-item-tile>
         </q-item-side>
         <q-item-main>
-          <q-item-tile label multiline="true">{{tweet.full_text}}</q-item-tile>
+          <q-item-tile label multiline="true"><span v-html="tweet.full_text"></span></q-item-tile>
         </q-item-main>
         <q-item-side right>
           <q-item-tile label>{{tweet.created_at | formatDate}}</q-item-tile>

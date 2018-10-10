@@ -1,0 +1,7 @@
+{
+  "name": "contrail",
+  "description": "roarer twitter search",
+  "repository": "https://github.com/taliento/roarer",
+  "logo": "",
+  "keywords": ["vue", "express", "angular-cli", "nodejs", "twitter"]
+}

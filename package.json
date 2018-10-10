@@ -4,7 +4,8 @@
   "description": "twitter search and other stuffs",
   "scripts": {
     "test": "npm test",
-    "start": "nf start"
+    "start": "nf start",
+    "postinstall": "./view/ quasar build"
   },
   "engines": {
     "node": "8.x"
@@ -18,6 +19,6 @@
     "path": "^0.12.7",
     "throng": "^4.0.0",
     "twitter": "^1.7.1",
-    "vue": "^2.5.17"
+    "quasar-cli": "^0.17.0"
   }
 }
