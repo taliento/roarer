@@ -16,7 +16,7 @@ app.use(
 app.use(bodyParser.json());
 
 // Create link to vue build directory
-const distDir = __dirname + "/view/dist/spa-mat";
+const distDir = __dirname + "/dist/spa-mat";
 app.use(express.static(distDir));
 
 var client = new Twitter({
