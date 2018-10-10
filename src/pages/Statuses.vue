@@ -40,7 +40,7 @@ export default {
     searchTweets: function (event) {
       this.loading = true
       axios
-        .get(process.env.API_URL ? process.env.API_URL : ''  + 'search/' + this.searchText)
+        .get(process.env.API_URL ? process.env.API_URL : '' + 'search/' + this.searchText)
         .then(response => {
           this.response = response
           this.loading = false
