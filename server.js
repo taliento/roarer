@@ -15,7 +15,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// Create link to vue build directory
+// Create link to quasar build directory
 const distDir = __dirname + "/dist/spa-mat";
 app.use(express.static(distDir));
 

@@ -12,8 +12,8 @@
           @click="leftDrawer = !leftDrawer"
         />
         <q-toolbar-title>
-          Header
-          <span slot="subtitle">Subtile</span>
+          Roarer
+          <span slot="subtitle">Twitter search</span>
         </q-toolbar-title>
       </q-toolbar>
       <!-- <q-tabs>
