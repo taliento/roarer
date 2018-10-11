@@ -36,20 +36,20 @@
 
     <!-- (Optional) The Footer -->
     <q-layout-footer>
-    <!--   <q-toolbar>
-        <q-btn
+      <q-toolbar>
+    <!--     <q-btn
           flat
           round
           dense
           icon="menu"
           @click="leftDrawer = !leftDrawer"
-        />
+        />-->
         <q-toolbar-title>
           Footer
           <span slot="subtitle">Subtile</span>
         </q-toolbar-title>
       </q-toolbar>
-      <q-tabs>
+    <!--   <q-tabs>
         <q-route-tab
           slot="title"
           icon="map"

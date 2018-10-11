@@ -14,6 +14,19 @@ Vue.filter('formatDate', function (value) {
   }
 })
 
+Vue.filter('tweetParser', function (value) {
+  if (!value) {
+    return
+  }
+
+  //  URLs starting with http://, https://, or ftp://
+  value = value.replace(/(\b(https?|ftp):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gim, '<a href="$1" target="_blank">$1</a>')
+  // hashtag RegExp
+  value = value.replace(/#([\w]+)/g, '<a href="https://twitter.com/hashtag/$1" target="_blank">#$1</a>')
+  // @name RegExp
+  return value.replace(/@([\w]+)/g, '<a href="https://twitter.com/$1" target="_blank">@$1</a>')
+})
+
 /*
  * If not building with SSR mode, you can
  * directly export the Store instantiation
