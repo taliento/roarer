@@ -18,7 +18,8 @@ Vue.filter('tweetParser', function (value) {
   if (!value) {
     return
   }
-
+  // retweet
+  value = value.replace(/^RT?([\w]+)/g, '<i class="material-icons">autorenew</i>')
   //  URLs starting with http://, https://, or ftp://
   value = value.replace(/(\b(https?|ftp):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gim, '<a href="$1" target="_blank">$1</a>')
   // hashtag RegExp
