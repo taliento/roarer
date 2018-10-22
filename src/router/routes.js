@@ -12,8 +12,13 @@ const routes = [
     component: () => import('layouts/Twitter.vue'),
     children: [
       {
+        path: 'search/:query',
+        component: () => import('pages/Statuses.vue'),
+        props: true
+      },
+      {
         path: '',
-        component: () => import('pages/Statuses.vue')
+        component: () => import('pages/Trends.vue')
       }
     ]
   }

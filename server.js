@@ -27,14 +27,14 @@ var client = new Twitter({
 
 const API_URL = "/api";
 /*
-*  curl -X GET 'http://localhost:3000/search/riace'| jq
+*  curl -X GET 'http://localhost:3000/api/search/riace'| jq
 */
 app.get(API_URL + "/search/:query", function(req, res) {
   const params = {
     q: req.params.query,
     tweet_mode: "extended",
     include_entities: false,
-    locale: 'it'
+    lang: 'it'
   };
   client.get("search/tweets", params,
     function(error, tweets, response) {
@@ -53,7 +53,7 @@ app.get(API_URL + "/refresh", function(req, res) {
     max_id: req.query.max_id,
     tweet_mode: "extended",
     include_entities: false,
-    locale: 'it'
+    lang: 'it'
   };
   client.get("search/tweets", params,
     function(error, tweets, response) {
@@ -66,6 +66,24 @@ app.get(API_URL + "/refresh", function(req, res) {
    });
 });
 
+/**
+* get the trends by place id WOEID
+*/
+app.get(API_URL + "/trends" ,function(req, res) {
+  const params = {
+    count: 10,
+    id: 23424853 //italy //Global information is available by using 1 as the WOEID
+  };
+  client.get("trends/place", params,
+  function(error, response) {
+    if(error) {
+      console.log(error);
+      res.status(500).send(error);
+    } else {
+      res.send(response);
+    }
+  });
+});
 
 // Initialize the app.
 var server = app.listen(process.env.PORT || 3000, function() {

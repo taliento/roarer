@@ -24,20 +24,35 @@ export default {
   methods: {
     searchTweets: function (event) {
       axios
-        .get(process.env.API + 'search/' + this.searchText)
+        .get(process.env.API + 'search/' + encodeURIComponent(this.searchText))
         .then((response) => {
           this.response = response
           this.tweets = response.data.statuses
         })
     },
     refresher (index, done) {
+      if (!this.response) {
+        return
+      }
       axios
-        .get(process.env.API + 'refresh' + this.response.data.search_metadata.next_results)
+        .get(process.env.API + 'refresh' + encodeURIComponent(this.response.data.search_metadata.next_results))
         .then((response) => {
           this.response = response
           this.tweets = this.tweets.concat(response.data.statuses)
           done()
         })
+    }
+  },
+  mounted: function () {
+    if (this.query || this.query !== '') {
+      this.searchText = this.query
+      this.searchTweets(null)
+    }
+  },
+  props: {
+    query: {
+      type: String,
+      default: ''
     }
   },
   components: {
