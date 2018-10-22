@@ -3,6 +3,11 @@
     <q-item-main>
       <q-item-tile label>{{trend.name}}</q-item-tile>
     </q-item-main>
+    <q-item-side>
+      <q-item-tile>
+        {{trend.tweet_volume}}
+      </q-item-tile>
+    </q-item-side>
   </q-item>
 </template>
 

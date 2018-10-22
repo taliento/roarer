@@ -71,7 +71,13 @@ module.exports = function (ctx) {
         'QSearch',
         'QSpinner',
         'QInfiniteScroll',
-        'QSpinnerDots'
+        'QSpinnerDots',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions'
       ],
       directives: [
         'Ripple'

@@ -1,17 +1,13 @@
 <template>
-  <q-item>
-    <q-item-side>
-      <q-item-tile avatar>
-        <img :src="tweet.user.profile_image_url" :alt="tweet.user.name" :title="tweet.user.name" v-on:click="goToProfile(tweet.user.screen_name)">
-      </q-item-tile>
-    </q-item-side>
-    <q-item-main>
-      <q-item-tile label multiline="true"><span v-html="$options.filters.tweetParser(tweet.full_text)"></span></q-item-tile>
-    </q-item-main>
-    <q-item-side right>
-      <q-item-tile label>{{tweet.created_at | formatDate}}</q-item-tile>
-    </q-item-side>
-  </q-item>
+  <q-card inline style="width: 95%">
+    <q-item>
+      <q-item-side :avatar="tweet.user.profile_image_url" :alt="tweet.user.name" :title="tweet.user.name" v-on:click="goToProfile(tweet.user.screen_name)" />
+      <q-item-main>
+        <q-item-tile label><p v-html="$options.filters.tweetParser(tweet.full_text)"></p></q-item-tile>
+        <q-item-tile sublabel><p class="text-faded">{{tweet.created_at | formatDate}}</p></q-item-tile>
+      </q-item-main>
+    </q-item>
+  </q-card>
 </template>
 
 <script>
