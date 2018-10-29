@@ -12,7 +12,7 @@ import axios from 'axios'
 import Trend from '../components/Trend'
 
 export default {
-  // name: 'PageName',
+  name: 'Trends',
   data () {
     return {
       trends: []

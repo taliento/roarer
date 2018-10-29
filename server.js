@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
 const Twitter = require("twitter");
+const querystring = require('querystring');
 
 const app = express();
 app.use(cors());
@@ -47,10 +48,13 @@ app.get(API_URL + "/search/:query", function(req, res) {
    });
 });
 
-app.get(API_URL + "/refresh", function(req, res) {
+app.get(API_URL + "/refresh/:query", function(req, res) {
+  console.log(req.params.query);
+
+  const queryEncoded = querystring.parse(req.params.query);
   const params = {
-    q: req.query.q,
-    max_id: req.query.max_id,
+    q: queryEncoded.q,
+    max_id: queryEncoded.max_id,
     tweet_mode: "extended",
     include_entities: false,
     lang: 'it'

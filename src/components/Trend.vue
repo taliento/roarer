@@ -13,18 +13,13 @@
 
 <script>
 export default {
-  // name: 'ComponentName',
+  name: 'Trend',
   data () {
     return {}
   },
   props: {
     trend: {
       type: Object
-    }
-  },
-  methods: {
-    handler () {
-      // TODO GO TO SEARCH WITH QUERY this.trend.query
     }
   }
 }

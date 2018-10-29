@@ -35,7 +35,7 @@ export default {
         return
       }
       axios
-        .get(process.env.API + 'refresh' + encodeURIComponent(this.response.data.search_metadata.next_results))
+        .get(process.env.API + 'refresh/' + encodeURIComponent(this.response.data.search_metadata.next_results))
         .then((response) => {
           this.response = response
           this.tweets = this.tweets.concat(response.data.statuses)

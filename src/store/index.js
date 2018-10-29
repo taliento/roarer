@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import moment from 'moment'
-import example from './module-example'
+import tweets from './tweets'
 
 Vue.use(Vuex)
 
@@ -23,12 +23,12 @@ Vue.filter('tweetParser', function (value) {
   //  URLs starting with http://, https://, or ftp://
   value = value.replace(/(\b(https?|ftp):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gim, '<a href="$1" target="_blank">$1</a>')
   // hashtag RegExp
-  value = value.replace(/#([\w]+)/g, '<a href="https://twitter.com/hashtag/$1" target="_blank">#$1</a>')
+  value = value.replace(/#([\w]+)/g, '<a href="/search/$1" target="_blank">#$1</a>')
   // @name RegExp
-  return value.replace(/@([\w]+)/g, '<a href="https://twitter.com/$1" target="_blank">@$1</a>')
+  return value.replace(/@([\w]+)/g, '<a href="/search/$1" target="_blank">@$1</a>')
 })
 
-/*
+/* cd isVisible
  * If not building with SSR mode, you can
  * directly export the Store instantiation
  */
@@ -36,7 +36,7 @@ Vue.filter('tweetParser', function (value) {
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     modules: {
-      example
+      tweets
     }
   })
 

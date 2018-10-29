@@ -1,6 +1,7 @@
 module.exports = function (ctx) {
   return {
     // app plugins (/src/plugins)
+    preFetch: true,
     plugins: [
       'axios'
     ],

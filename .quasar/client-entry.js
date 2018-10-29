@@ -33,6 +33,8 @@ import pAxios from 'src/plugins/axios'
 
 
 
+import { addPreFetchHooks } from './client-prefetch.js'
+
 
 
 
@@ -68,6 +70,8 @@ const { app, store, router } = createApp()
 
 
 
+
+addPreFetchHooks(router, store)
 
 
 
