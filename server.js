@@ -49,8 +49,6 @@ app.get(API_URL + "/search/:query", function(req, res) {
 });
 
 app.get(API_URL + "/refresh/:query", function(req, res) {
-  console.log(req.params.query);
-
   const queryEncoded = querystring.parse(req.params.query);
   const params = {
     q: queryEncoded.q,

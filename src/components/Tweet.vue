@@ -4,6 +4,7 @@
       <q-item-side :avatar="tweet.user.profile_image_url" :alt="tweet.user.name" :title="tweet.user.name" v-on:click="goToProfile(tweet.user.screen_name)" />
       <q-item-main>
         <q-item-tile label><p v-html="$options.filters.tweetParser(tweet.full_text)"></p></q-item-tile>
+        <retweet :retweet="tweet.retweeted_status"></retweet>
         <q-item-tile sublabel><p class="text-faded">{{tweet.created_at | formatDate}}</p></q-item-tile>
       </q-item-main>
     </q-item>
@@ -11,6 +12,8 @@
 </template>
 
 <script>
+import Retweet from './Retweet'
+
 export default {
   name: 'Tweet',
   props: {
@@ -25,6 +28,9 @@ export default {
   },
   data () {
     return {}
+  },
+  components: {
+    Retweet
   }
 }
 </script>

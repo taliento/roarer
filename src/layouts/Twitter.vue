@@ -75,6 +75,7 @@
       <!-- QScrollArea is optional -->
       <q-scroll-area class="fit q-pa-sm">
         <!-- Content here -->
+        content here
       </q-scroll-area>
     </q-layout-drawer>
 
