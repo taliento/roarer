@@ -19,6 +19,14 @@ const routes = [
       {
         path: '',
         component: () => import('pages/Trends.vue')
+      },
+      {
+        path: 'graph',
+        component: () => import('pages/TrendGraph.vue')
+      },
+      {
+        path: 'chart',
+        component: () => import('pages/TrendUsersStat.vue')
       }
     ]
   }

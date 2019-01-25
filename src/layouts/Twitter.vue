@@ -16,13 +16,13 @@
           <span slot="subtitle">Twitter search</span>
         </q-toolbar-title>
       </q-toolbar>
-      <!-- <q-tabs>
+       <!--q-tabs>
         <q-route-tab
-          slot="title"
-          icon="map"
-          to="/your/route"
+          slot="chart"
+          icon="chart"
+          to="/graph"
           replace
-          label="One Tab"
+          label="Chart"
         />
         <q-route-tab
           slot="title"
@@ -31,7 +31,7 @@
           replace
           label="Other Tab"
         />
-      </q-tabs> -->
+      </q-tabs-->
     </q-layout-header>
 
     <!-- (Optional) The Footer -->
@@ -75,7 +75,9 @@
       <!-- QScrollArea is optional -->
       <q-scroll-area class="fit q-pa-sm">
         <!-- Content here -->
-        content here
+        <q-btn label="Graph" to="/graph" />
+        <q-btn label="Chart" to="/chart" />
+
       </q-scroll-area>
     </q-layout-drawer>
 
